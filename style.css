@@ -1,0 +1,31 @@
+body {
+  background-color: #454c4c;
+  width: 70%;
+  margin: auto;
+}
+
+canvas {
+  background-color: white;
+  display: block;
+  margin: 50px auto 50px;
+  box-shadow: 0 4px 0 0 #222;
+  cursor: pointer;
+  width: 500px;
+  height: 250px;
+}
+
+#figures{
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+input{
+  width: 100px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+button{
+  width: 250px;
+  margin: 10px;
+}
