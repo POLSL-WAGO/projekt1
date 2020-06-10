@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	<!--
+  <!--
 	Kuśmierz Wojciech
 	Rojek Marcin
 	Wiśniewski Mateusz
@@ -22,70 +22,63 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <canvas id="myCanvas"></canvas>
-  
- <div id="figures">
-  <div id="punkt" class="figure">
-    <h3>PUNKT</h3>
-    Współrzędne punktu: <br />
-    X:<input type="number" id="pkt_x" />
-    Y:<input type="number" id="pkt_y" /><br />
-    Kolor:
-    <input type="color" id="pkt_color" /><br />
-    <button class="btn btn-secondary">Rysuj</button>
-  </div>
+    <canvas width="500" height="500" id="myCanvas"></canvas>
 
-  <div id="circle">
-    <h3>KOŁO</h3>
-    Współrzędne środka koła: <br />
-    X:<input type="number" id="cir_x"/>
-    Y:<input type="number" id="cir_y"/><br />
-    Promień:<br />
-    R: <input type="number" id="cir_r"/><br />
-    Kolor:
-    <input type="color" id="cir_color" /><br />
-    <button class="btn btn-secondary">Rysuj</button>
-  </div>
+    <div id="figures">
+      <div id="punkt" class="figure">
+        <h3>PUNKT</h3>
+        Współrzędne punktu: <br />
+        X:<input type="number" id="pkt_x" /> Y:<input type="number" id="pkt_y" /><br />
+        Kolor:
+        <input type="color" id="pkt_color" /><br />
+        <button id="pkt" onclick="DrawPoint()" class="btn btn-secondary">Rysuj</button>
+      </div>
 
-  <div id="line">
-    <h3>LINIA</h3>
-    Współrzędne początku: <br />
-    X:<input type="number" id="linStart_x"/>
-    Y:<input type="number" id="linStart_y"/><br />
-    Współrzędne końca: <br />
-    X:<input type="number" id="linEnd_x"/>
-    Y:<input type="number" id="linEnd_y"/><br />
-    Kolor:
-    <input type="color" id="lin_color" /><br />
-    <button class="btn btn-secondary">Rysuj</button>
-  </div>
+      <div id="circle">
+        <h3>okrąg</h3>
+        Współrzędne środka okręgu: <br />
+        X:<input type="number" id="cir_x" /> Y:<input type="number" id="cir_y" /><br />
+        Promień:<br />
+        R: <input type="number" id="cir_r" /><br />
+        Kolor:
+        <input type="color" id="cir_color" /><br />
+        <button class="btn btn-secondary">Rysuj</button>
+      </div>
 
-  <div id="rectangle">
-    <h3>PROTOKĄT</h3>
-    Współrzędne początku: <br />
-    X:<input type="number" id="rec_x"/>
-    Y:<input type="number" id="rec_y"/><br />
-    Długości boków: <br />
-    A:<input type="number" id="rec_a"/>
-    B:<input type="number" id="rec_b"/><br />
-    Kolor:
-    <input type="color" id="rec_color" /><br />
-    <button class="btn btn-secondary">Rysuj</button>
-  </div>
+      <div id="line">
+        <h3>LINIA</h3>
+        Współrzędne początku: <br />
+        X:<input type="number" id="linStart_x" /> Y:<input type="number" id="linStart_y" /><br />
+        Współrzędne końca: <br />
+        X:<input type="number" id="linEnd_x" /> Y:<input type="number" id="linEnd_y" /><br />
+        Kolor:
+        <input type="color" id="lin_color" /><br />
+        <button class="btn btn-secondary">Rysuj</button>
+      </div>
 
-  <div id="polygon">
-    <h3>WIELOKĄT</h3>
-    Współrzędne początku: <br />
-    X:<input type="number" id="pol_x"/>
-    Y:<input type="number" id="pol_y"/><br />
-    Ilość boków:<br />
-    S:<input type="number" id="pol_size"/><br />
-    Kolor:
-    <input type="color" id="pol_color" /><br />
-    <button class="btn btn-secondary">Rysuj</button>
-  </div>
-</div>
-</body>
+      <div id="rectangle">
+        <h3>PROTOKĄT</h3>
+        Współrzędne początku: <br />
+        X:<input type="number" id="rec_x" /> Y:<input type="number" id="rec_y" /><br />
+        Długości boków: <br />
+        A:<input type="number" id="rec_a" /> B:<input type="number" id="rec_b" /><br />
+        Kolor:
+        <input type="color" id="rec_color" /><br />
+        <button class="btn btn-secondary">Rysuj</button>
+      </div>
+
+      <div id="polygon">
+        <h3>WIELOKĄT</h3>
+        Współrzędne początku: <br />
+        X:<input type="number" id="pol_x" /> Y:<input type="number" id="pol_y" /><br />
+        Ilość boków:<br />
+        S:<input type="number" id="pol_size" /><br />
+        Kolor:
+        <input type="color" id="pol_color" /><br />
+        <button class="btn btn-secondary">Rysuj</button>
+      </div>
+    </div>
+  </body>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script
@@ -103,5 +96,5 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"
   ></script>
-  <script src="index.js"></script>
+  <script src="drawlib.js"></script>
 </html>
