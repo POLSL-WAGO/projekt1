@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!--
+<!--
 	Kuśmierz Wojciech
 	Rojek Marcin
-	Wiśniewski Mateusz
-	-->
+  Wiśniewski Mateusz
+  
+  Strona testowa rysowania na CANVAS
+-->
 
   <head>
     <meta charset="UTF-8" />
@@ -20,19 +22,70 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script></script>
+    <script>
+      function Point(){
+        var pkt_x = document.getElementById("pkt_x").value;
+        var pkt_y = document.getElementById("pkt_y").value;
+        var pkt_color = document.getElementById("pkt_color").value;
+        DrawPoint(pkt_x, pkt_y, pkt_color);
+      }
+
+      function Circle(){
+        var circle_x = document.getElementById("cir_x").value;
+        var circle_y = document.getElementById("cir_y").value;
+        var circle_size = document.getElementById("cir_r").value;
+        var circle_color = document.getElementById("cir_color").value;
+        DrawCircle(circle_x, circle_y, circle_size, circle_color);
+      }
+
+      function Line(){
+        var start_x = document.getElementById("linStart_x").value;
+        var start_y = document.getElementById("linStart_y").value;
+        var end_x = document.getElementById("linEnd_x").value;
+        var end_y = document.getElementById("linEnd_x").value;
+        var line_color = document.getElementById("lin_color").value;
+        DrawLine(start_x, start_y, end_x, end_y, line_color);
+      }
+
+      function polygon(S) {
+        const Points = new Array(S);
+        for (i = 0; i < S; i++) {
+          Points[i] = [];
+        }
+        for (i = 0; i < S; i++) {
+          for (j = 0; j <= 1; j++) {
+            if (j == 0) {
+              Points[i][j] = prompt("Wprowadz współrzędną x" + i);
+            } else {
+              Points[i][j] = prompt("Wprowadz współrzędną y" + i);
+            }
+          }
+        }
+        DrawPolygon(Points);
+      }
+    </script>
   </head>
   <body>
     <canvas width="500" height="500" id="myCanvas"></canvas>
 
     <div id="figures">
+      <div id="losowanie">
+        <h3>LOSOWANIE</h3>
+        Ile punktów chcesz wylosować:"<br />
+        <input type="number" id="pkt_random" /> <br />
+        <button onclick="randomPoints(pkt_random.value)">Losuj</button><br />
+        Ile odcinków chcesz wylosować:"<br />
+        <input type="number" id="lin_random" /><br />
+        <button onclick="randomLines(lin_random.value)">Losuj</button>
+      </div>
+
       <div id="punkt" class="figure">
         <h3>PUNKT</h3>
         Współrzędne punktu: <br />
         X:<input type="number" id="pkt_x" /> Y:<input type="number" id="pkt_y" /><br />
         Kolor:
         <input type="color" id="pkt_color" /><br />
-        <button id="pkt" onclick="DrawPoint()" class="btn btn-secondary">Rysuj</button>
+        <button id="pkt" onclick="Point()" class="btn btn-secondary">Rysuj</button>
       </div>
 
       <div id="circle">
@@ -43,7 +96,7 @@
         R: <input type="number" id="cir_r" /><br />
         Kolor:
         <input type="color" id="cir_color" /><br />
-        <button onclick="DrawCircle()" class="btn btn-secondary">Rysuj</button>
+        <button onclick="Circle()" class="btn btn-secondary">Rysuj</button>
       </div>
 
       <div id="line">
@@ -54,18 +107,7 @@
         X:<input type="number" id="linEnd_x" /> Y:<input type="number" id="linEnd_y" /><br />
         Kolor:
         <input type="color" id="lin_color" /><br />
-        <button onclick="DrawLine()" class="btn btn-secondary">Rysuj</button>
-      </div>
-
-      <div id="rectangle">
-        <h3>PROTOKĄT</h3>
-        Współrzędne początku: <br />
-        X:<input type="number" id="rec_x" /> Y:<input type="number" id="rec_y" /><br />
-        Długości boków: <br />
-        A:<input type="number" id="rec_a" /> B:<input type="number" id="rec_b" /><br />
-        Kolor:
-        <input type="color" id="rec_color" /><br />
-        <button onclick="DrawRectangle()" class="btn btn-secondary">Rysuj</button>
+        <button onclick="Line()" class="btn btn-secondary">Rysuj</button>
       </div>
 
       <div id="polygon">
@@ -96,4 +138,5 @@
     crossorigin="anonymous"
   ></script>
   <script src="drawlib.js"></script>
+  <script src="random.js"></script>
 </html>
