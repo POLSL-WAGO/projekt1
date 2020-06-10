@@ -20,23 +20,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script>
-      function polygon(S){
-        const Points = new Array(S);
-        for (i = 0; i < S; i++) {
-            Points[i] = [];
-        }
-        for(i = 0; i < S; i++){
-          for(j = 0; j <= 1; j++){
-            if(j == 0){
-              Points[i][j] = prompt("Wprowadz współrzędną x" + i);
-            }else {
-              Points[i][j] = prompt("Wprowadz współrzędną y" + i);
-            }
-          }
-        }
-      }
-    </script>
+    <script></script>
   </head>
   <body>
     <canvas width="500" height="500" id="myCanvas"></canvas>
@@ -59,7 +43,7 @@
         R: <input type="number" id="cir_r" /><br />
         Kolor:
         <input type="color" id="cir_color" /><br />
-        <button class="btn btn-secondary">Rysuj</button>
+        <button onclick="DrawCircle()" class="btn btn-secondary">Rysuj</button>
       </div>
 
       <div id="line">
@@ -70,7 +54,7 @@
         X:<input type="number" id="linEnd_x" /> Y:<input type="number" id="linEnd_y" /><br />
         Kolor:
         <input type="color" id="lin_color" /><br />
-        <button class="btn btn-secondary">Rysuj</button>
+        <button onclick="DrawLine()" class="btn btn-secondary">Rysuj</button>
       </div>
 
       <div id="rectangle">
@@ -81,16 +65,16 @@
         A:<input type="number" id="rec_a" /> B:<input type="number" id="rec_b" /><br />
         Kolor:
         <input type="color" id="rec_color" /><br />
-        <button class="btn btn-secondary">Rysuj</button>
+        <button onclick="DrawRectangle()" class="btn btn-secondary">Rysuj</button>
       </div>
 
       <div id="polygon">
         <h3>WIELOKĄT</h3>
         Ilość boków:<br />
-        S:<input type="number" id="pol_size"/><br />
+        S:<input type="number" id="pol_size" /><br />
         Kolor:
         <input type="color" id="pol_color" /><br />
-        <button class="btn btn-secondary" onclick=polygon(pol_size.value)>Rysuj</button>
+        <button class="btn btn-secondary" onclick="polygon(pol_size.value)">Rysuj</button>
       </div>
     </div>
   </body>
