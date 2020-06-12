@@ -18,7 +18,7 @@ function dimensionMatrix(A) {
         } 		
 	}
 	var m = A[0].length;
-	for(var i = 0; i < n; i++) {
+	for(var i = 0; i < n; i++){
 		if(A[i].length != m){
             throw "To nie jest macierz";
         } 	
@@ -30,16 +30,16 @@ function dimensionMatrix(A) {
 	return {n,m};
 }
 
-function dotMatrix(A, B) { // w zasadzie dowolne, ale o wĹaĹciwych wymiarach
+function dotMatrix(A, B){
 	var dmA = dimensionMatrix(A);
 	var dmB = dimensionMatrix(B);
 	if(dmA.m != dmB.n) throw "Nie można pomnożyć macierzy";
 	var C = [];
-	for(var w = 0; w < dmA.n; w++) {
+	for(var w = 0; w < dmA.n; w++){
 		C[w]=[];
-		for(var k=0; k < dmB.m; k++) {
+		for(var k=0; k < dmB.m; k++){
 			C[w][k] = 0;
-			for(var i = 0; i < dmA.m; i++) {
+			for(var i = 0; i < dmA.m; i++){
 				C[w][k] += A[w][i] * B[i][k];
 			}
 		}
@@ -47,15 +47,13 @@ function dotMatrix(A, B) { // w zasadzie dowolne, ale o wĹaĹciwych wymiara
 	return C;
 }
 
-function det(A){
-    // TYLKO DAL 2 STOPNIA
+function detMatrix(A){
 	var dM = dimensionMatrix(A);
-	if(dM.m!=2 || dM.n!=2) throw "det wymaga macierzy stopnia 2";
-	return A[0][0]*A[1][1]-A[0][1]*A[1][0];
+	if(dM.m != 2 || dM.n != 2) throw "TYLKO DLA 2 STOPNIA";
+	return A[0][0] * A[1][1] - A[0][1] * A[1][0];
 }
 
-function inverseMatrix(A) { 
-    // TYLKO DAL 2 STOPNIA
+function inverseMatrix(A) {
 	var det = det(A);
 	var B = [[],[]];
 	B[0][0] = A[1][1]/det;
@@ -66,9 +64,9 @@ function inverseMatrix(A) {
 }
 
 function rowMatrix(A) {
-	var cutColumn = function(A,i) {
+	var cutColumn = function(A,i){
 	var B = [[],[]];
-	for(var i = 0; i < 2; i++) {
+	for(var i = 0; i < 2; i++){
 		k = 0;
 		for(var j = 0; j < 3; j++) if(j != i){
 			B[i][k] = A[i][j];
@@ -77,8 +75,8 @@ function rowMatrix(A) {
 	}
 	return B;
 	}
-	var wymiar = wymiarMacierzy(A);
-	if(wymiar.n == 2 && wymiar.m == 2) {
+	var dim = dimensionMatrix(A);
+	if(dim.n == 2 && dim.m == 2){
 		var d = det(A);
 		if(d != 0) return 2;
 		if(A[0][0] != 0)return 1;
@@ -87,7 +85,7 @@ function rowMatrix(A) {
 		if(A[1][1] != 0)return 1;
 		return 0;
 	}
-	else if(wymiar.n == 2 && wymiar.m == 3) {		
+	else if(dim.n == 2 && dim.m == 3){		
 		var r0 = rowMatrix(cutColumn(A,0));
 		var r1 = rowMatrix(cutColumn(A,1));
 		var r2 = rowMatrix(cutColumn(A,2));	

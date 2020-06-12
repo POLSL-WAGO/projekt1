@@ -23,11 +23,11 @@ function DrawPoint(pkt_x, pkt_y, pkt_color) {
   shapes.push({ x: pkt_x, y: pkt_y, width: pkt_x, radius: 6, isDragging: false });
 }
 
-function DrawCircle(circle_x, circle_y, circle_size, circle_color) {
+function DrawCircle(circle_x, circle_y, circle_r, circle_color) {
   //funkcja rysuje okrąg w wybranym przez nas miejscu,rozmiarze i kolorze
   //console.log(circle_size);
   ctx.beginPath();
-  ctx.arc(circle_x, circle_y, circle_size, 0, 2 * Math.PI, false);
+  ctx.arc(circle_x, circle_y, circle_r, 0, 2 * Math.PI, false);
   ctx.strokeStyle = circle_color;
   ctx.stroke();
 }
