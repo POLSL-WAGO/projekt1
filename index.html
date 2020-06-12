@@ -71,12 +71,19 @@
     <div id="figures">
       <div id="losowanie">
         <h3>LOSOWANIE</h3>
-        Ile punktów chcesz wylosować:"<br />
+        Ile punktów chcesz wylosować:<br />
         <input type="number" id="pkt_random" /> <br />
         <button onclick="randomPoints(pkt_random.value)">Losuj</button><br />
-        Ile odcinków chcesz wylosować:"<br />
+
+        Ile odcinków chcesz wylosować:<br />
         <input type="number" id="lin_random" /><br />
-        <button onclick="randomLines(lin_random.value)">Losuj</button>
+        <button onclick="randomLines(lin_random.value)">Losuj</button><br />
+
+        LOSOWANIE PROSTYCH W RÓŻNYCH KIERUNKACH<br />
+        Podaj punkt startowy:<br />
+        X:<input type="number" id="lin_rnd_x" /> Y:<input type="number" id="lin_rnd_y" /><br />
+        <input type="number" id="lin_rnd_size" /><br />
+        <button onclick="randomDirectionLine(lin_rnd_x.value, lin_rnd_y.value, lin_rnd_size.value)">Losuj</button>
       </div>
 
       <div id="punkt" class="figure">
@@ -89,7 +96,7 @@
       </div>
 
       <div id="circle">
-        <h3>okrąg</h3>
+        <h3>OKRĄG</h3>
         Współrzędne środka okręgu: <br />
         X:<input type="number" id="cir_x" /> Y:<input type="number" id="cir_y" /><br />
         Promień:<br />
